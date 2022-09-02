@@ -25,7 +25,14 @@
                 >
                     <i class='fa fa-edit' />
                 </a>
-                <t t-esc="contact.commercial_company_name or contact.name" />
+                <t t-if="contact_is_company">
+                    <strong t-esc="contact.commercial_company_name" />
+                    <t t-esc="contact.commercial_partner_id.vat" />
+                </t>
+                <t t-else="">
+                    <strong t-esc="contact.name" />
+                </t>
+
                 <t t-esc="contact" t-options="dict(widget='contact', fields=['address'], no_marker=True)" />
             </div>
             <div class='card-footer' t-if='not readonly'>
@@ -130,6 +137,7 @@
                                                 <t t-call="deltatech_website_billing_addresses.address_billing_kanban">
                                                     <t t-set='type' t-value="'invoice'" />
                                                     <t t-set='contact' t-value="billing" />
+                                                    <t t-set="contact_is_company" t-value="False" />
                                                     <t t-set='selected' t-value="order.partner_invoice_id==billing" />
                                                     <t t-set='readonly' t-value="bool(len(billings_addresses)==1)" />
                                                     <t t-set='edit_billing' t-value="bool(billing==order.partner_id)" />
@@ -173,6 +181,7 @@
                                                 <t t-call="deltatech_website_billing_addresses.address_billing_kanban">
                                                     <t t-set='type' t-value="'invoice'" />
                                                     <t t-set='contact' t-value="billing" />
+                                                    <t t-set="contact_is_company" t-value="True" />
                                                     <t t-set='selected' t-value="order.partner_invoice_id==billing" />
                                                     <t t-set='readonly' t-value="bool(len(billings_addresses)==1)" />
                                                     <t t-set='edit_billing' t-value="bool(billing==order.partner_id)" />
