@@ -10,9 +10,7 @@
     "category": "Sales",
     "depends": ["deltatech_sale_pallet", "website_sale"],
     "license": "LGPL-3",
-    "data": [
-        # "views/templates.xml"
-    ],
+    "data": [],
     "images": ["static/description/main_screenshot.png"],
     "development_status": "Beta",
     "maintainers": ["dhongu"],
