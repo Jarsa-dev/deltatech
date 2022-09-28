@@ -13,12 +13,11 @@
     "license": "LGPL-3",
     "data": [
         "security/ir.model.access.csv",
-        "data/data.xml",
+        "security/stock_security.xml" "data/data.xml",
         "views/stock_inventory_views.xml",
         "views/product_view.xml",
         "views/report_stockinventory.xml",
         "views/stock_requests_count_view.xml",
-        # "wizard/stock_change_product_qty_view.xml",
     ],
     "images": ["images/main_screenshot.png"],
     "installable": True,
